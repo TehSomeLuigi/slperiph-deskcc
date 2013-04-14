@@ -1,0 +1,2 @@
+CCDesk-Entry: com.someluigi.slperiph.ccdesk.SLPPlug
+

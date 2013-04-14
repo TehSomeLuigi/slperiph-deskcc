@@ -1,0 +1,29 @@
+<?xml version="1.0" ?> 
+<project name="SomeLuigis Peripherals: CCDesk Port">
+	
+	<property name="dir.src" value="./src" />
+	<property name="dir.lib" value="./lib" />
+	<property name="dir.bin" value="./bin" />
+	<property name="dir.out" value="." />
+	
+	<target name="clean">
+
+	</target>
+	
+	<target name="build">
+		<mkdir dir="${dir.bin}"/>
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${dir.src}" destdir="${dir.bin}" classpath="${dir.lib}/computercraft.jar:${dir.lib}/deskcc-core.jar" />
+	</target>
+	
+	<target name="release" depends="clean,build">		
+		<!-- Build the jar -->
+		<jar destfile="${dir.out}/slp-deskport.jar">
+			<fileset dir="${dir.bin}" />
+		</jar>
+		
+		<!-- Clean up now we are done -->
+		<antcall target="clean" />
+	</target>
+
+</project>
